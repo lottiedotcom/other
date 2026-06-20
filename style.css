@@ -13,17 +13,14 @@ body {
     flex-direction: column;
     overflow: hidden;
     position: relative;
-    user-select: none; /* Prevents text selection while holding touch plate */
 }
 
 .scanlines {
-    position: absolute;
-    top: 0; left: 0; width: 100vw; height: 100dvh;
+    position: absolute; top: 0; left: 0; width: 100vw; height: 100dvh;
     background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), 
                 linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
     background-size: 100% 4px, 3px 100%;
-    pointer-events: none;
-    z-index: 999;
+    pointer-events: none; z-index: 999;
 }
 
 @keyframes glitch {
@@ -59,16 +56,30 @@ body {
 #terminal-container {
     display: flex; flex-direction: column; height: 100%; width: 100%; max-width: 800px; margin: 0 auto;
     border-left: 1px solid #e0e0e0; border-right: 1px solid #e0e0e0; position: relative;
-    animation: glitch 8s infinite;
 }
 
 #status-bar {
     background-color: #f0f8ff; padding: 10px; display: flex; justify-content: space-between;
-    font-size: 0.85rem; border-bottom: 2px solid #add8e6; flex-shrink: 0;
+    font-size: 0.85rem; border-bottom: 2px solid #add8e6; flex-shrink: 0; font-weight: bold;
 }
 
+#battery-status { color: #ffb6c1; }
+
+/* The Black Mirror */
+#scrying-container {
+    margin: 15px; padding: 10px; display: flex; flex-direction: column; align-items: center; background-color: #f9f9f9;
+}
+
+#scrying-pool {
+    width: 128px; height: 128px; background-color: #000; border: 2px solid #333;
+    image-rendering: pixelated; /* Makes the static sharp and chunky */
+    opacity: 0.8;
+}
+
+.scrying-label { margin-top: 5px; font-size: 0.75rem; color: #aaa; letter-spacing: 1px; }
+
 #chat-feed {
-    flex-grow: 1; list-style: none; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px;
+    flex-grow: 1; list-style: none; padding: 0 20px 20px 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px;
 }
 
 #chat-feed li { font-size: 1rem; line-height: 1.4; word-wrap: break-word; }
@@ -78,31 +89,6 @@ body {
 .entity { color: #ffb6c1; font-weight: bold; }
 .receiving { color: #d3d3d3; font-style: italic; }
 
-/* Touch Plate Styles */
-#touch-plate-container {
-    padding: 10px 15px;
-    background-color: #ffffff;
-    flex-shrink: 0;
-}
-
-#touch-plate {
-    width: 100%;
-    padding: 25px;
-    font-weight: bold;
-    color: #add8e6;
-    cursor: pointer;
-    transition: all 0.2s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#touch-plate.active {
-    background-color: #ffe4e1; /* Pale pink activation */
-    color: #ffb6c1;
-    border-color: #ffb6c1;
-}
-
 #user-input-area {
     display: flex; padding: 15px; background-color: #ffffff; border-top: 2px solid #add8e6;
     align-items: center; flex-shrink: 0;
@@ -110,9 +96,5 @@ body {
 
 .prompt-arrow { color: #add8e6; font-weight: bold; margin-right: 10px; }
 
-#user-text {
-    flex-grow: 1; border: none; outline: none; font-family: inherit; font-size: 1rem;
-    background: transparent; color: #333;
-}
-
+#user-text { flex-grow: 1; border: none; outline: none; font-family: inherit; font-size: 1rem; background: transparent; color: #333; }
 #send-btn { padding: 8px 15px; margin-left: 10px; }
