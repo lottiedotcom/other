@@ -12,31 +12,29 @@
     <div id="startup-screen">
         <div class="modal square-box">
             <h2 class="glitch-text">TERMINAL INACTIVE</h2>
-            <p>Awaiting environmental calibration.</p>
-            <button id="start-btn" class="square-btn">INITIALIZE CALIBRATION</button>
+            <p>Awaiting scrying pool initialization.</p>
+            <button id="start-btn" class="square-btn">OPEN CHANNEL</button>
         </div>
     </div>
 
     <div id="terminal-container" class="hidden">
         <div id="status-bar">
             <span id="sys-status">SYS: ONLINE</span>
-            <span id="audio-status">AUDIO: 0</span>
-            <span id="flux-status">EMF FLUX: 0.00</span>
+            <span id="battery-status">RESONANCE: 0%</span>
         </div>
         
-        <ul id="chat-feed">
-            <li><span class="system">[SYS]</span> System standing by...</li>
-        </ul>
-
-        <div id="touch-plate-container">
-            <div id="touch-plate" class="square-box">
-                [ PRESS AND HOLD TO TRANSMIT ]
-            </div>
+        <div id="scrying-container" class="square-box">
+            <canvas id="scrying-pool" width="64" height="64"></canvas>
+            <div class="scrying-label">[ OPTICAL SCRYING ACTIVE ]</div>
         </div>
+
+        <ul id="chat-feed">
+            <li><span class="system">[SYS]</span> Scrying pool active. Awaiting synchronicity...</li>
+        </ul>
 
         <div id="user-input-area">
             <span class="prompt-arrow">></span>
-            <input type="text" id="user-text" placeholder="Transmit message..." autocomplete="off">
+            <input type="text" id="user-text" placeholder="Transmit intent..." autocomplete="off">
             <button id="send-btn" class="square-btn">SEND</button>
         </div>
     </div>
