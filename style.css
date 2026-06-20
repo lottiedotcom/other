@@ -8,14 +8,14 @@ body {
     background-color: #ffffff;
     color: #333333;
     font-family: 'Courier New', Courier, monospace;
-    height: 100dvh; /* Dynamic viewport height to prevent mobile keyboard from breaking layout */
+    height: 100dvh; 
     display: flex;
     flex-direction: column;
     overflow: hidden;
     position: relative;
+    user-select: none; /* Prevents text selection while holding touch plate */
 }
 
-/* CRT / Wired-Core Overlay */
 .scanlines {
     position: absolute;
     top: 0; left: 0; width: 100vw; height: 100dvh;
@@ -26,7 +26,6 @@ body {
     z-index: 999;
 }
 
-/* Glitch Animation */
 @keyframes glitch {
     0% { opacity: 1; }
     90% { opacity: 1; }
@@ -39,14 +38,13 @@ body {
 
 .glitch-text { animation: glitch 4s infinite; }
 
-/* Startup Screen */
 #startup-screen {
     position: absolute; top: 0; left: 0; width: 100vw; height: 100dvh;
     background-color: #ffffff; display: flex; justify-content: center; align-items: center; z-index: 100;
 }
 
 .square-box {
-    border: 2px solid #add8e6; padding: 30px; text-align: center; background-color: #fcfcfc; border-radius: 0;
+    border: 2px solid #add8e6; padding: 20px; text-align: center; background-color: #fcfcfc; border-radius: 0;
 }
 
 .square-btn {
@@ -56,7 +54,6 @@ body {
 
 .square-btn:hover { background-color: #add8e6; color: #fff; }
 
-/* Terminal Layout */
 .hidden { display: none !important; }
 
 #terminal-container {
@@ -67,7 +64,7 @@ body {
 
 #status-bar {
     background-color: #f0f8ff; padding: 10px; display: flex; justify-content: space-between;
-    font-size: 0.85rem; border-bottom: 2px solid #add8e6; flex-shrink: 0; border-radius: 0;
+    font-size: 0.85rem; border-bottom: 2px solid #add8e6; flex-shrink: 0;
 }
 
 #chat-feed {
@@ -76,23 +73,46 @@ body {
 
 #chat-feed li { font-size: 1rem; line-height: 1.4; word-wrap: break-word; }
 
-/* Tags */
 .system { color: #aaaaaa; }
 .user { color: #add8e6; font-weight: bold; }
 .entity { color: #ffb6c1; font-weight: bold; }
 .receiving { color: #d3d3d3; font-style: italic; }
 
-/* User Input */
+/* Touch Plate Styles */
+#touch-plate-container {
+    padding: 10px 15px;
+    background-color: #ffffff;
+    flex-shrink: 0;
+}
+
+#touch-plate {
+    width: 100%;
+    padding: 25px;
+    font-weight: bold;
+    color: #add8e6;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#touch-plate.active {
+    background-color: #ffe4e1; /* Pale pink activation */
+    color: #ffb6c1;
+    border-color: #ffb6c1;
+}
+
 #user-input-area {
     display: flex; padding: 15px; background-color: #ffffff; border-top: 2px solid #add8e6;
-    align-items: center; flex-shrink: 0; border-radius: 0;
+    align-items: center; flex-shrink: 0;
 }
 
 .prompt-arrow { color: #add8e6; font-weight: bold; margin-right: 10px; }
 
 #user-text {
     flex-grow: 1; border: none; outline: none; font-family: inherit; font-size: 1rem;
-    background: transparent; color: #333; border-radius: 0;
+    background: transparent; color: #333;
 }
 
 #send-btn { padding: 8px 15px; margin-left: 10px; }
