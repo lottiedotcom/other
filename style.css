@@ -1,0 +1,129 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ffffff;
+    color: #333333;
+    font-family: 'Courier New', Courier, monospace;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Startup Screen */
+#startup-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.square-box {
+    border: 2px solid #add8e6; /* Light blue clinical border */
+    padding: 30px;
+    text-align: center;
+    background-color: #fcfcfc;
+}
+
+.square-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border: 1px solid #add8e6;
+    color: #333;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.square-btn:hover {
+    background-color: #add8e6;
+    color: #fff;
+}
+
+/* Terminal Layout */
+.hidden {
+    display: none !important;
+}
+
+#terminal-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-left: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+}
+
+#status-bar {
+    background-color: #f0f8ff; /* Very pale blue */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    border-bottom: 2px solid #add8e6;
+}
+
+#chat-feed {
+    flex-grow: 1;
+    list-style: none;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#chat-feed li {
+    font-size: 1rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+/* Chat Tags */
+.system { color: #aaaaaa; }
+.user { color: #add8e6; font-weight: bold; } /* Light blue for user */
+.entity { color: #ffb6c1; font-weight: bold; } /* Pale pink for entity */
+
+/* User Input */
+#user-input-area {
+    display: flex;
+    padding: 15px;
+    background-color: #ffffff;
+    border-top: 2px solid #add8e6;
+    align-items: center;
+}
+
+.prompt-arrow {
+    color: #add8e6;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#user-text {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-size: 1rem;
+    background: transparent;
+    color: #333;
+}
+
+#send-btn {
+    padding: 8px 15px;
+    margin-left: 10px;
+}
