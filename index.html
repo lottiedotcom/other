@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Terminal Receiver</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="startup-screen">
+        <div class="modal square-box">
+            <h2>TERMINAL INACTIVE</h2>
+            <p>Awaiting environmental sensor and microphone access.</p>
+            <button id="start-btn" class="square-btn">INITIALIZE SESSION</button>
+        </div>
+    </div>
+
+    <div id="terminal-container" class="hidden">
+        <div id="status-bar">
+            <span>SYS: ONLINE</span>
+            <span id="audio-status">AUDIO: 0</span>
+            <span id="motion-status">MOTION: 0</span>
+        </div>
+        
+        <ul id="chat-feed">
+            <li><span class="system">[SYS]</span> Monitoring environmental anomalies...</li>
+        </ul>
+
+        <div id="user-input-area">
+            <span class="prompt-arrow">></span>
+            <input type="text" id="user-text" placeholder="Type message..." autocomplete="off">
+            <button id="send-btn" class="square-btn">SEND</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
