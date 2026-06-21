@@ -12,24 +12,20 @@
     <div id="startup-screen">
         <div class="modal square-box">
             <h2 class="glitch-text">TERMINAL INACTIVE</h2>
-            <p>Awaiting scrying pool initialization.</p>
+            <p>Awaiting environmental and audio sensor access.</p>
             <button id="start-btn" class="square-btn">OPEN CHANNEL</button>
         </div>
     </div>
 
     <div id="terminal-container" class="hidden">
         <div id="status-bar">
-            <span id="sys-status">SYS: ONLINE</span>
-            <span id="battery-status">RESONANCE: 0%</span>
+            <span id="sys-status" class="system">SYS: ONLINE</span>
+            <span id="target-hz" class="tracker">T-HZ: --</span>
+            <span id="target-emf" class="tracker">T-EMF: --</span>
         </div>
         
-        <div id="scrying-container" class="square-box">
-            <canvas id="scrying-pool" width="64" height="64"></canvas>
-            <div class="scrying-label">[ OPTICAL SCRYING ACTIVE ]</div>
-        </div>
-
         <ul id="chat-feed">
-            <li><span class="system">[SYS]</span> Scrying pool active. Awaiting synchronicity...</li>
+            <li><span class="system">[SYS]</span> Environmental scanners active. Awaiting anchor text.</li>
         </ul>
 
         <div id="user-input-area">
